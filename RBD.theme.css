@@ -1,0 +1,222 @@
+/**
+* @name Rainy's Better Discord
+* @author r39ny
+* @version 0.1
+* @description A Vanilla+ theme for discord's new UI
+*/
+
+/* you're welcome to change these variables as your liking */
+:root {
+    --rbd-messagebox-icongap: 5px; /* Default: 5px */
+    --rbd-home-icon-image: url('https://a.ppy.sh/35179851?1724218857.jpeg');
+    /* --bdc-home-icon-image: url('https://i.imgur.com/63g6Em8.jpg'); */
+    --rbd-background-image: url('https://files.catbox.moe/cdvcup.jpeg');
+
+    --rbd-guildlist-width: 32px;
+    --rbd-guildlist-transition: .1s;
+    --rbd-guildlist-gap: 5px;
+    --rbd-guildlist-iconwidth: 45px;
+}
+
+
+/* remove top bar (linux) */
+:root {
+    --custom-app-top-bar-height: 0;
+    --custom-channel-textarea-text-area-height: 38px;
+}
+
+@keyframes rainbow {
+    0% {
+        -webkit-filter: hue-rotate(0);
+        -moz-filter: hue-rotate(0);
+        -ms-filter: hue-rotate(0);
+        filter: hue-rotate(0);
+    }
+    100% {
+        -webkit-filter: hue-rotate(360deg);
+        -moz-filter: hue-rotate(360deg);
+        -ms-filter: hue-rotate(360deg);
+        filter: hue-rotate(360deg);
+    }
+}
+.item__58105 {
+    animation: rainbow 3s linear infinite;
+    box-shadow: 0 0 0 2px hsl(0, 100%, 50%);
+    background-color: red;
+    border-radius: 10px;
+    display: block;
+    margin-left: 0;
+    margin-top: 0;
+    position: absolute;
+    top: 0;
+    left: 3px;
+    width: 40px;
+    height: 40px !important;
+    transform: none !important;
+}
+.pill_e5445c {
+    width: 48px;
+    height: 48px;
+}
+.wrapper__58105 {
+    overflow: visible;
+}
+div[class^='base'] > div[class^='bar'] {
+    display: none;
+}
+
+div[class^='channelTextArea'] div[class^='buttons'] {
+    gap: var(--rbd-messagebox-icongap);
+}
+
+div[class^='channelTextArea'] {
+    margin-bottom: 13px;
+}
+
+div[class^='channelTextArea'] div[class^='scrollableContainer'] {
+    transform: translateY(-50%);
+    top: 50%;
+    position: relative;
+    background-color: transparent !important;
+}
+
+/* hiding default discord icon from home button */
+.listItemWrapper__91816 > .wrapper_cc5dd2:nth-child(1) > svg {
+    opacity: 0;
+}
+
+/* home icon */
+.listItemWrapper__91816 {
+    background: yellow;
+    border-radius: 13px;
+    background-image: var(--rbd-home-icon-image);
+    background-size: contain;
+    z-index: 1;
+}
+
+
+.visual-refresh .scroller_ef3116 {
+    padding-top: 12px;
+    width: 120px;
+    /* z-index: 999999999999; */
+}
+
+.stack_dbd263.scroller_ef3116.none_d125d2.scrollerBase_d125d2 {
+    flex-direction: row;
+    height: 100vh;
+}
+
+.stack_dbd263[aria-label="Servers"] {
+    width: 116px;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    position: absolute;
+    /* code snippet for centering server icons */
+    top: 50%;
+    transform: translateY(-50%);
+
+    max-height: calc(100vh - 135px);
+    overflow: auto;
+    overflow-x: hidden;
+    row-gap: var(--rbd-guildlist-gap) !important;
+}
+.stack_dbd263[aria-label="Servers"] > div,
+.tutorialContainer__650eb,/*add servers icon*/
+.listItem__650eb {/*dm icon*/
+    width: var(--rbd-guildlist-iconwidth);
+}
+.stack_dbd263[aria-label="Servers"]::-webkit-scrollbar {
+    display: none;
+}
+.sidebar_c48ade {
+    background-color: #000000aa !important;
+}
+nav.wrapper_ef3116.guilds_c48ade {
+    width: 32px;
+    background: transparent;
+    backdrop-filter: blur(5px);
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+    overflow-x: hidden;
+    transition-duration: var(--rbd-guildlist-transition);
+    margin: unset;
+    border-right: 1px dashed #666;
+}
+nav.wrapper_ef3116.guilds_c48ade:hover {
+    width: 105px;
+    border-right: 1px solid #666;
+}
+
+/* folder rainbow fix */
+.folder__48112 {
+    transform: translateY(-4px);
+}
+
+.guildSeparator__252b6 {
+    width: 1px;
+    height: var(--rbd-guildlist-width) !important;
+}
+
+.scroller_ef3116 > .listItem__650eb,
+button[aria-label="Send a gift"] {
+    display: none;
+}
+
+.channelAppLauncher_e6e74f {
+    display: none !important;
+}
+
+.bg__960e4 {
+    background-color: unset !important;
+    background-image: var(--rbd-background-image) !important;
+    background-size:cover !important;
+    background-position: 50% 50%;
+}
+
+.visual-refresh .sidebar_c48ade:after {
+    background: unset;
+}
+
+nav.privateChannels__35e86 {
+    background: #00000099 !important;
+}
+
+nav.privateChannels__35e86 .scroller__99e7c.scrollerBase__99f8c {
+    background: #00000099;
+}
+
+.chat_f75fb0 {
+    background: #000000bb !important;
+}
+
+main.chatContent_f75fb0 {
+    background: #000000bb !important;
+    /* background: unset; */
+}
+
+section.title_f75fb0.container__9293f {
+    background: #000000aa;
+}
+
+/* left container (sidebar and channel list) */
+nav.container__2637a {
+    background-color: #000000aa !important;
+    padding-left: var(--rbd-guildlist-width) !important;
+}
+
+/* Fix: right row not clickable */
+.tutorialContainer__650eb {
+    height: fit-content;
+}
+
+/* impact bottom left buttons */
+.buttons__37e49 > * {
+    width: 20px !important;
+}
+
+/* Fix: removing space in dm list */
+div#guild-list-unread-dms,
+div[aria-label="Direct Messages"] {
+    display: none;
+}
